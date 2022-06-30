@@ -1,0 +1,5 @@
+Plot[(1/10)((Sin[(5+1/2)2 Pi x]/(Sin[Pi x]))), {x, -3, 3},
+AxesLabel -> {"x/\[Lambda]^0", "f(x)"},
+PlotLabel ->"Addition of various wave functions.",
+PlotRange -> All,
+GridLines -> Automatic]
