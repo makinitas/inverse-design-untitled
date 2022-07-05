@@ -54,7 +54,7 @@ int main(int argc, char** argv)
     // populate arrays
     for (int i = -n; i <= n; i++)
     {
-        x[n + i] = i * 0.05;
+        x[n + i] = i * 0.01;
         y[n + i] = calculate_complex_num(n, x[n + i]);
         cout << x[n + i] << "   " << y[n + i] << endl;
     }
