@@ -27,7 +27,7 @@ void output_data(double x[], double y[], int n)
 
     if(success){
         vector<double> *pngdata = ConvertToPNG(imageReference->image);
-        WriteToFile(pngdata, "example1.png");
+        WriteToFile(pngdata, "plots/plot" + to_string(n) + ".png");
         DeleteImage(imageReference->image);
 	}
 }
@@ -47,20 +47,23 @@ double calculate_complex_num(int n, double ang)
 
 int main(int argc, char** argv)
 {
-    int n = atoi(argv[1]);
-    double y[(2 * n) + 1];
-    double x[(2 * n) + 1];
-    
-    // populate arrays
-    for (int i = -n; i <= n; i++)
+    for (int j = 3; j < 100; j++)
     {
-        x[n + i] = i * 0.01;
-        y[n + i] = calculate_complex_num(n, x[n + i]);
-        cout << x[n + i] << "   " << y[n + i] << endl;
-    }
+        int n = j;
+        double y[(2 * n) + 1];
+        double x[(2 * n) + 1];
     
-    // plot graph
-    output_data(x, y, n);
+        // populate arrays
+        for (int i = -n; i <= n; i++)
+        {
+            x[n + i] = i * 0.01;
+            y[n + i] = calculate_complex_num(n, x[n + i]);
+            cout << x[n + i] << "   " << y[n + i] << endl;
+        }
+    
+        // plot graph
+        output_data(x, y, n);
+    }
     
     return 0;
 }
